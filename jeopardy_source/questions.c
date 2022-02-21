@@ -157,9 +157,10 @@ bool valid_answer(char *category, int value, char *answer)
 {
     // Look into string comparison functions
 
+    // checks which question is equal to th
     for(int i = 0; i < 12; i++){
         if(strcmp(questions[i].category, category) == 0 && questions[i].value == value){
-            if(strcasecmp(questions[i].answer, answer)){
+            if(strcasecmp(questions[i].answer, answer) == 0){
                 questions[i].answered = true;
 
                 return true;
@@ -176,7 +177,7 @@ bool already_answered(char *category, int value)
 {
     // lookup the question and see if it's already been marked as answered
     for (int i=0; i<12; i++){
-        if(strcmp(questions[i].category, category) && questions[i].value == value){
+        if(strcmp(questions[i].category, category == 0 ) && questions[i].value == value){
             if (questions[i].answered){
                 printf("Question has already been answered");
                 return true;

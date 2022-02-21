@@ -20,10 +20,10 @@
 // Put global environment variables here
 
 // Processes the answer from the user containing what is or who is and tokenizes it to retrieve the answer.
-void tokenize(char *input, char **tokens);
+//void tokenize(char *input, char **tokens);
 
 // Displays the game results for each player, their name and final score, ranked from first to last place
-void show_results(player *players, int num_players);
+//void show_results(player *players, int num_players);
 
 
 int main(int argc, char *argv[])
@@ -94,7 +94,7 @@ int main(int argc, char *argv[])
             } while(already_answered(chosenCategory,questionValue));
 
         //clears the display of categories and shows the question
-        
+
         system("clear");
         display_question(chosenCategory, questionValue);
 
@@ -123,10 +123,9 @@ int main(int argc, char *argv[])
     return 0;
 }
 
-// Execute the game until all questions are answered
 
-        // Display the final results and exit
 
+// tokenize function to get a valid answer
 void tokenize(char *input, char **tokens) {
     const char delimiter = " ";
 
@@ -161,6 +160,7 @@ void show_results(player *players, int numPlayers) {
         }
     }
 
+    // prints the final scores of players
     printf("The final scores are: \n");
     for(int i = 0; i < numPlayers; i++)
         printf("%*s: %d\n", playerName + 1, players[i].name, players[i].score);
