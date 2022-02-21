@@ -1,7 +1,7 @@
 /*
  * Tutorial 3 Jeopardy Project for SOFE 3950U / CSCI 3020U: Operating Systems
  *
- * Copyright (C) 2015, <GROUP MEMBERS>
+ * Copyright (C) 2015, <David Fung 100767734, Anish Patel 100751489, Raphaiel Halim 100700318>
  * All rights reserved.
  *
  */
@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     initialize_game();
 
     //Starting message
-    printf("Welcome to Jeopardy!");
+    printf("Welcome to Jeopardy!\n");
 
     // Prompt for players names and initialize each of the players in the array
     for(int i = 0; i < NUM_PLAYERS; i++){
@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
 
 
         //loop gets the chosen category
-            while(already_answered(chosenCategory,questionValue)){
+            do{
                 if(questionValue != 0) {
                     printf("No Category chosen!");
                 }
@@ -89,16 +89,17 @@ int main(int argc, char *argv[])
                 fgets((char*) chosenCategory, MAX_LEN, stdin);
                 strtok(chosenCategory, "\n");
 
-                printf("Enter: ");
+                printf("Enter a value: ");
                 scanf("%d", (int *) &questionValue);
-            }
+            } while(already_answered(chosenCategory,questionValue));
 
-            //clears the display of categories and shows the question
-            system("clear");
-            display_question(chosenCategory, questionValue);
+        //clears the display of categories and shows the question
+        
+        system("clear");
+        display_question(chosenCategory, questionValue);
 
-            char *answer[MAX_LEN] = {0};
-            getchar();
+        char *answer[MAX_LEN] = {0};
+        getchar();
         fgets((char *) answer, MAX_LEN, stdin);
 
         char *tokenize_answer;
@@ -108,11 +109,11 @@ int main(int argc, char *argv[])
             printf("Please try again and enter a valid answer.");
         } else if(valid_answer(chosenCategory, questionValue, tokenize_answer)) {
             printf("You are CORRECT!!");
-            printf("Player %s gets %d points \n", chosenPlayer, chosenValue);
-            update_score(players, 4, chosenPlayer, chosenValue);
+            printf("Player %s gets %d points \n", currentPlayer, questionValue);
+            update_score(players, 4, currentPlayer, questionValue);
         } else {
             printf("You are WRONG!!!");
-            print_answer(chosenCategory, chosenValue);
+            // print_answer(chosenCategory, questionValue);
         }
 
         show_results(players, 4);

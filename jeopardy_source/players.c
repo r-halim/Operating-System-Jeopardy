@@ -1,7 +1,7 @@
 /*
  * Tutorial 3 Jeopardy Project for SOFE 3950U / CSCI 3020U: Operating Systems
  *
- * Copyright (C) 2015, <GROUP MEMBERS>
+ * Copyright (C) 2015, <David Fung 100767734, Anish Patel 100751489, Raphaiel Halim 100700318>
  * All rights reserved.
  *
  */
