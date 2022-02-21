@@ -155,7 +155,7 @@ void show_results(player *players, int numPlayers) {
             playerName = strlen(players[i].name);
 
         if(players[i].score > playerScore) {
-            score = players[i].score;
+            playerScore = players[i].score;
             winner = i;
         }
     }
